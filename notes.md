@@ -32,3 +32,9 @@ I know that I don't know...
 - Very much Python (will need a refresher, and likely run into speed bumps)
 - How to do natural language processing
 - What algorithms, libraries, tools are needed to make realistic-sounding sentences
+
+## Resources Used
+
+Python
+
+- [Python Tutorial](https://docs.python.org/3/tutorial/)
