@@ -1,12 +1,20 @@
 # Generate a sentence of n length from a word source
 
 def allWords(files):
-    allWords = []
+    words = []
     for f in files:
-        text = open(f, 'r').read()
-        words = text.split()
-        allWords.extend(words)
-    return allWords
+        words.extend(wordsFromFile(f))
+    return words
+
+def wordsFromFile(f):
+    import re
+
+    text = open(f, 'r').read()
+    words = re.split('\W+', text)
+    return [sanitize(w) for w in words]
+
+def sanitize(word):
+    return word.lower()
 
 def sampleWord(source):
     import random
