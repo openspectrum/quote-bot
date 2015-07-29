@@ -2,13 +2,13 @@
 
 from words import words
 from probability import probabilities
-from sample_word import sampleWord
+from sample_word import sample_word
 
 def sentence(length, words):
-    sortedProbabilities = probabilities(words)
+    sorted_probabilities = probabilities(words)
     sentence = []
     for i in range(length):
-        sentence.append(sampleWord(sortedProbabilities))
+        sentence.append(sample_word(sorted_probabilities))
     sentence[0] = capitalize(sentence[0])
     return ' '.join(sentence) + '.'
 
@@ -17,8 +17,8 @@ def capitalize(word):
 
 if __name__ == "__main__":
     import sys
-    sentenceLength = sys.argv[1]
+    sentence_length = sys.argv[1]
     files = sys.argv[2:len(sys.argv)]
     words = words(files)
-    sent = sentence(int(sentenceLength), words)
+    sent = sentence(int(sentence_length), words)
     print(sent)

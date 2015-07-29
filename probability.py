@@ -1,19 +1,19 @@
 def probabilities(words):
-    freqDist = wordCount(words)
+    freq_dist = word_count(words)
     probabilities = []
     prob = 0
-    for word, freq in freqDist.items():
-        prob = round(prob + probability(word, freqDist), 6)
+    for word, freq in freq_dist.items():
+        prob = round(prob + probability(word, freq_dist), 6)
         probabilities.append((prob, word))
     return sorted(probabilities)
 
-def probability(word, freqDist):
+def probability(word, freq_dist):
     numWords = 0
-    for _, freq in freqDist.items():
+    for _, freq in freq_dist.items():
         numWords += freq
-    return round(freqDist[word] / numWords, 6)
+    return round(freq_dist[word] / numWords, 6)
 
-def wordCount(words):
+def word_count(words):
     counts = {}
     for word in words:
         if word in counts:

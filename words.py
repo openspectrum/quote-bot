@@ -1,10 +1,10 @@
 def words(files):
     words = []
     for f in files:
-        words.extend(wordsFromFile(f))
+        words.extend(words_from_file(f))
     return words
 
-def wordsFromFile(f):
+def words_from_file(f):
     import re
 
     text = open(f, 'r').read()
@@ -16,6 +16,6 @@ def sanitize(word):
 
 if __name__ == "__main__":
     import sys
-    sentenceLength = sys.argv[1]
+    sentence_length = sys.argv[1]
     files = sys.argv[2:len(sys.argv)]
     words = words(files)
