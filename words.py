@@ -8,7 +8,7 @@ def words_from_file(f):
     import re
 
     text = open(f, 'r').read()
-    words = re.split('\W+', text)
+    words = re.split('[-"\s]*', text)
     return [sanitize(w) for w in words]
 
 def sanitize(word):
