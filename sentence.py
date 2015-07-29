@@ -2,13 +2,19 @@
 
 from words import words
 from probability import probabilities
-from sample_word import sample_word
+from word_sequences import pairs
+from sample_word import choose_next_word
 
 def sentence(length, words):
-    sorted_probabilities = probabilities(words)
+    word_pairs = pairs(words)
+    sorted_probabilities = probabilities(word_pairs)
     sentence = []
+    prev_word = None
     for i in range(length):
-        sentence.append(sample_word(sorted_probabilities))
+        word = choose_next_word(prev_word, sorted_probabilities)
+        sentence.append(word)
+        prev_word = word
+
     sentence[0] = capitalize(sentence[0])
     return ' '.join(sentence) + '.'
 
