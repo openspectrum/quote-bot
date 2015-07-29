@@ -42,6 +42,8 @@ First hangup: how to use word frequencies to generate a "more realistic" sentenc
 
 Used the "case study: data structure selection" link to guide process for probability-based word sampling. Probability selection algorithm caused some bikeshedding but not too bad.
 
+At some point asked myself "what is the conventional python writing style?" and realized that snake_case is preferred over camelCase. Might be good to prompt students with this question sooner than later so that adherence to convention is encouraged early.
+
 ## Resources Used
 
 Python
