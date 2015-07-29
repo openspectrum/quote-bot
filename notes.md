@@ -31,10 +31,23 @@ I know that I don't know...
 
 - Very much Python (will need a refresher, and likely run into speed bumps)
 - How to do natural language processing
-- What algorithms, libraries, tools are needed to make realistic-sounding sentences
+- What algorithms, libraries, tools are needed to make realistic-sounding
+sentences
+
+## Thoughts During Attempt
+
+List comprehensions in Python are awesome, want to learn about these more.
+
+First hangup: how to use word frequencies to generate a "more realistic" sentence? More-frequent words should be more likely to appear, but don't want to rule out words either. Need to work with probabilities. What if compiled word frequencies into a probability number and then used that to select a set of words? How is that different/better than just randomly selecting from the original list? What about alternating between high and low probability words?
 
 ## Resources Used
 
 Python
 
 - [Python Tutorial](https://docs.python.org/3/tutorial/)
+- [Book: Natural Language Processing in Python](http://www.nltk.org/book/)
+
+Computer Science:
+
+- [Chapter 13  Case study: data structure selection](http://www.greenteapress.com/thinkpython/html/thinkpython014.html)
+- [How to Think Like a Computer Scientist: Learning with Python](http://www.openbookproject.net/thinkcs/python/english2e/)
