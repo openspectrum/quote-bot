@@ -44,6 +44,8 @@ Used the "case study: data structure selection" link to guide process for probab
 
 At some point asked myself "what is the conventional python writing style?" and realized that snake_case is preferred over camelCase. Might be good to prompt students with this question sooner than later so that adherence to convention is encouraged early.
 
+Ok next step is to start generating sentences that make slightly more sense. One pattern that I've noticed in my research and provided materials is the notion of using sequences of words to determine probability. For example, if in the source text the word "apple" is followed in 2 places by "pie" and 1 place by "tart", then there should be a proportional probability of those sequences appearing in the generated text. If the sequences are short enough, then theoretically there will be enough variance because conjunctions, pronouns, and other "filler" words will have a large variety of subsequent words to choose from.
+
 ## Resources Used
 
 Python
