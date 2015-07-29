@@ -9,7 +9,11 @@ def sentence(length, words):
     sentence = []
     for i in range(length):
         sentence.append(sampleWord(sortedProbabilities))
+    sentence[0] = capitalize(sentence[0])
     return ' '.join(sentence) + '.'
+
+def capitalize(word):
+    return word[0].upper() + word[1:len(word)]
 
 if __name__ == "__main__":
     import sys
