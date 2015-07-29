@@ -40,6 +40,8 @@ List comprehensions in Python are awesome, want to learn about these more.
 
 First hangup: how to use word frequencies to generate a "more realistic" sentence? More-frequent words should be more likely to appear, but don't want to rule out words either. Need to work with probabilities. What if compiled word frequencies into a probability number and then used that to select a set of words? How is that different/better than just randomly selecting from the original list? What about alternating between high and low probability words?
 
+Used the "case study: data structure selection" link to guide process for probability-based word sampling. Probability selection algorithm caused some bikeshedding but not too bad.
+
 ## Resources Used
 
 Python
