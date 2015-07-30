@@ -1,3 +1,7 @@
+import re
+
+chars_to_strip = "\"()"
+
 def words(files):
     words = []
     for f in files:
@@ -5,14 +9,12 @@ def words(files):
     return words
 
 def words_from_file(f):
-    import re
-
     text = open(f, 'r').read()
-    words = re.split('[-"\s]*', text)
+    words = re.split('\s*', text)
     return [sanitize(w) for w in words]
 
 def sanitize(word):
-    return word.lower()
+    return word.strip(chars_to_strip)
 
 if __name__ == "__main__":
     import sys
