@@ -1,19 +1,16 @@
 # Generate a sentence of n length from a word source
 
 from words import words
-from probability import probabilities
-from word_sequences import pairs
-from sample_word import choose_next_word
+from markov import *
 
-def sentence(length, words):
-    word_pairs = pairs(words)
-    sorted_probabilities = probabilities(word_pairs)
-    sentence = []
-    prev_word = None
-    for i in range(length):
-        word = choose_next_word(prev_word, sorted_probabilities)
-        sentence.append(word)
-        prev_word = word
+def sentence(length, corpus):
+    prefix_length = 2
+    markov_dist = markov(corpus, prefix_length)
+    prefix = choose_next_prefix(markov_dist)
+    sentence = list(prefix)
+    for i in range(length - prefix_length):
+        prefix = choose_next_prefix(markov_dist, prefix)
+        sentence.append(prefix[-1])
 
     sentence[0] = capitalize(sentence[0])
     return ' '.join(sentence) + '.'
@@ -25,6 +22,6 @@ if __name__ == "__main__":
     import sys
     sentence_length = sys.argv[1]
     files = sys.argv[2:len(sys.argv)]
-    words = words(files)
-    sent = sentence(int(sentence_length), words)
+    corpus = words(files)
+    sent = sentence(int(sentence_length), corpus)
     print(sent)
