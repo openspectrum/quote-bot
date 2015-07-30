@@ -11,7 +11,12 @@ def markov(words, prefix_size=2):
 
 if __name__ == '__main__':
     import sys
+    import pickle
     from words import words
+    
     files = sys.argv[1:]
     corpus = words(files)
-    print(markov(corpus))
+    dist = markov(corpus)
+    pickle_file = "markov.pickle"
+    pickle.dump(dist, open(pickle_file, "wb"))
+    print("Markov distribution pickled to " + pickle_file + ".")
