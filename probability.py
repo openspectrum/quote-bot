@@ -1,3 +1,5 @@
+import random
+
 def probabilities(words):
     freq_dist = word_count(words)
     probabilities = []
@@ -21,3 +23,10 @@ def word_count(words):
         else:
             counts[word] = 1
     return counts
+
+def sample_word(sorted_probabilities):
+    limit = sorted_probabilities[-1][0]
+    choice = round(random.uniform(0, limit), 6)
+    for freq, word in sorted_probabilities:
+        if choice < freq:
+            return word
