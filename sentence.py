@@ -3,12 +3,23 @@
 from words import words
 from markov import *
 
+articles = ['the', 'a']
+prepositions = ['of', 'to', 'in']
+conjunctions = ['accordingly', 'after', 'also', 'although', 'and', 'because', 'before', 'besides', 'but', 'consequently', 'conversely', 'for', 'furthermore', 'hence', 'how', 'however', 'if', 'instead', 'lest', 'likewise', 'meanwhile', 'moreover', 'nevertheless', 'nonetheless', 'nor', 'once', 'or', 'otherwise', 'rather', 'since', 'so', 'still', 'than', 'that', 'then', 'therefore', 'though', 'thus', 'till', 'unless', 'until', 'what', 'whatever', 'when', 'whenever', 'where', 'whereas', 'wherever', 'whether', 'which', 'whichever', 'while', 'who', 'whoever', 'whom', 'whomever', 'whose', 'why', 'yet']
+
+non_ending_words = articles + prepositions + conjunctions
+
 def sentence(length, markov_dist):
     prefix = choose_next_prefix(markov_dist)
     sentence = list(prefix)
-    for i in range(length - len(prefix)):
+    limit = length - len(prefix)
+    counter = 0
+    while (counter <= limit):
         prefix = choose_next_prefix(markov_dist, prefix)
         sentence.append(prefix[-1])
+        if (counter == limit) and (sentence[-1] in non_ending_words):
+            limit += 1
+        counter += 1
 
     sentence[0] = capitalize(sentence[0])
     return ' '.join(sentence) + '.'
