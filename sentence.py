@@ -40,5 +40,6 @@ if __name__ == "__main__":
         corpus = words(files)
         markov_dist = markov(corpus, prefix_length)
 
-    sent = sentence(int(sentence_length), markov_dist)
-    print(sent)
+    for i in range(10):
+        sent = sentence(int(sentence_length), markov_dist)
+        print(sent)
