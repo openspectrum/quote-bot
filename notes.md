@@ -1,12 +1,12 @@
 # Notes
 
-On learning how to build the Žižek Bot.
+On learning how to build the Quote Bot.
 
 ## Objective
 
-Generate realistic-sounding sentences in the style of Slavoj Žižek.
+Generate realistic-sounding fake quotes from a corpus.
 
-Sentences do not need to be completely grammatically correct, but they should be sensical.
+Quotes do not need to be completely grammatically correct, but they should be sensical.
 
 ## Expected Iterations
 
@@ -16,7 +16,7 @@ Sentences do not need to be completely grammatically correct, but they should be
 1. Figure out how to build sentences that are (mostly) grammatically correct. (I don't know how to do this, will require some research).
 1. Load it all into a module with a command-line interface
 1. Add a web layer (with Flask) & deploy to Heroku
-1. Add Twitter integration (daily Zizek tweets)
+1. Add Twitter integration (daily fake quote tweets)
 
 ## Known Knowns & Known Unknowns
 
