@@ -5,14 +5,14 @@ import parts_of_speech
 non_ending_words =  parts_of_speech.articles + parts_of_speech.prepositions + parts_of_speech.conjunctions
 non_ending_punctuation = [',', ';', ':', '–', '-']
 
-def sentence(length, next_prefix):
-    prefix = next_prefix()
-    sentence = list(prefix)
-    limit = length - len(prefix)
+def sentence(length, next_chunk):
+    chunk = next_chunk()
+    sentence = list(chunk)
+    limit = length - len(chunk)
     counter = 0
     while (counter <= limit):
-        prefix = next_prefix()
-        sentence.append(prefix[-1])
+        chunk = next_chunk()
+        sentence.append(chunk[-1])
         if (counter == limit) and is_incomplete(sentence):
             limit += 1
         counter += 1
