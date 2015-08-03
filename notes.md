@@ -46,6 +46,10 @@ At some point asked myself "what is the conventional python writing style?" and 
 
 Ok next step is to start generating sentences that make slightly more sense. One pattern that I've noticed in my research and provided materials is the notion of using sequences of words to determine probability. For example, if in the source text the word "apple" is followed in 2 places by "pie" and 1 place by "tart", then there should be a proportional probability of those sequences appearing in the generated text. If the sequences are short enough, then theoretically there will be enough variance because conjunctions, pronouns, and other "filler" words will have a large variety of subsequent words to choose from.
 
+Getting a basic Markov model up and running was not too hard once the concept was clarified. Adjusting parameters should be easy.
+
+Further steps for fun times: use a "seed" word (or group of words) to generate a quote, building backwards and forwards from that word. For example, if given "apple pie", could generate the phrase "My favorite time of apple pie chart the dimensions."
+
 ## Resources Used
 
 Python
