@@ -1,11 +1,13 @@
 import random
 
+decimal_limit = 6
+
 def probabilities(words):
     freq_dist = word_count(words)
     probabilities = []
     prob = 0
     for word, freq in freq_dist.items():
-        prob = round(prob + probability(word, freq_dist), 6)
+        prob = round(prob + probability(word, freq_dist), decimal_limit)
         probabilities.append((prob, word))
     return sorted(probabilities)
 
@@ -13,7 +15,7 @@ def probability(word, freq_dist):
     numWords = 0
     for _, freq in freq_dist.items():
         numWords += freq
-    return round(freq_dist[word] / numWords, 6)
+    return round(freq_dist[word] / numWords, decimal_limit)
 
 def word_count(words):
     counts = {}
@@ -26,7 +28,7 @@ def word_count(words):
 
 def sample_word(sorted_probabilities):
     limit = sorted_probabilities[-1][0]
-    choice = round(random.uniform(0, limit), 6)
+    choice = round(random.uniform(0, limit), decimal_limit)
     for freq, word in sorted_probabilities:
         if choice < freq:
             return word
