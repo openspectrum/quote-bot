@@ -3,7 +3,7 @@ import pickle
 from words import words
 from sentence import *
 from markov import *
-from probability import probabilities, make_word_walker
+from frequency import probabilities, make_word_walker
 
 sentence_length = int(sys.argv[1])
 algorithm_selection = sys.argv[2]

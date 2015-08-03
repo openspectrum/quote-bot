@@ -3,7 +3,7 @@ import random
 decimal_limit = 6
 
 def probabilities(words):
-    freq_dist = word_count(words)
+    freq_dist = frequencies(words)
     probabilities = []
     prob = 0
     for word, freq in freq_dist.items():
@@ -17,7 +17,7 @@ def probability(word, freq_dist):
         numWords += freq
     return round(freq_dist[word] / numWords, decimal_limit)
 
-def word_count(words):
+def frequencies(words):
     counts = {}
     for word in words:
         if word in counts:
@@ -46,6 +46,6 @@ if __name__ == '__main__':
     files = sys.argv[1:]
     corpus = words(files)
     dist = probabilities(corpus)
-    pickle_file = "probability.pickle"
+    pickle_file = "freq.pickle"
     pickle.dump(dist, open(pickle_file, "wb"))
     print("Probability distribution pickled to " + pickle_file + ".")
