@@ -14,14 +14,14 @@ if len(files) == 1 and files[0].split('.')[-1] == "pickle":
     source = pickle.load(open(files[0], "rb"))
     if algorithm_selection == 'markov':
         walker = make_prefix_walker(source)
-    elif algorithm_selection == 'word_weighted':
+    elif algorithm_selection == 'freq':
         walker = make_word_walker(source)
 else:
     corpus = words(files)
     if algorithm_selection == 'markov':
         source = markov(corpus, prefix_length)
         walker = make_prefix_walker(source)
-    elif algorithm_selection == 'word_weighted':
+    elif algorithm_selection == 'freq':
         source = probabilities(corpus)
         walker = make_word_walker(source)
 
