@@ -11,11 +11,13 @@ def markov(words, prefix_size=2):
         prefix = prefix[1:] + (word,)
     return distribution
 
-def choose_next_prefix(markov_dist, prefix=None):
-    if prefix == None:
-        prefix = random.choice(tuple(markov_dist.keys()))
-    next_word = random.choice(markov_dist[prefix])
-    return prefix[1:] + (next_word,)
+def make_prefix_walker(markov_dist):
+    def prefix_walker(prefix=None):
+        if prefix == None:
+            prefix = random.choice(tuple(markov_dist.keys()))
+        next_word = random.choice(markov_dist[prefix])
+        return prefix[1:] + (next_word,)
+    return prefix_walker
 
 if __name__ == '__main__':
     import sys
