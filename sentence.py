@@ -11,7 +11,7 @@ def sentence(length, next_prefix):
     limit = length - len(prefix)
     counter = 0
     while (counter <= limit):
-        prefix = next_prefix(prefix)
+        prefix = next_prefix()
         sentence.append(prefix[-1])
         if (counter == limit) and is_incomplete(sentence):
             limit += 1
