@@ -26,9 +26,14 @@ def word_count(words):
             counts[word] = 1
     return counts
 
-def sample_word(sorted_probabilities):
+def make_word_walker(sorted_probabilities):
+    history = []
     limit = sorted_probabilities[-1][0]
-    choice = round(random.uniform(0, limit), decimal_limit)
-    for freq, word in sorted_probabilities:
-        if choice < freq:
-            return word
+
+    def word_walker():
+        choice = round(random.uniform(0, limit), decimal_limit)
+        for freq, word in sorted_probabilities:
+            if choice < freq:
+                history.append(word)
+                return (word,)
+    return word_walker

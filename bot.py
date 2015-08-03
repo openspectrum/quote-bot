@@ -3,19 +3,27 @@ import pickle
 from words import words
 from sentence import *
 from markov import *
+from probability import probabilities, make_word_walker
 
-sentence_length = sys.argv[1]
-files = sys.argv[2:len(sys.argv)]
+sentence_length = int(sys.argv[1])
+algorithm_selection = sys.argv[2]
+files = sys.argv[3:len(sys.argv)]
 prefix_length = 2
 
 if len(files) == 1 and files[0].split('.')[-1] == "pickle":
-    markov_dist = pickle.load(open(files[0], "rb"))
+    source = pickle.load(open(files[0], "rb"))
+    if algorithm_selection == 'markov':
+        walker = make_prefix_walker(source)
+    elif algorithm_selection == 'word_weighted':
+        walker = make_word_walker(source)
 else:
     corpus = words(files)
-    markov_dist = markov(corpus, prefix_length)
+    if algorithm_selection == 'markov':
+        source = markov(corpus, prefix_length)
+        walker = make_prefix_walker(source)
+    elif algorithm_selection == 'word_weighted':
+        source = probabilities(corpus)
+        walker = make_word_walker(source)
 
-prefix_walker = make_prefix_walker(markov_dist)
-
-for i in range(10):
-    sent = sentence(int(sentence_length), prefix_walker)
-    print(sent)
+sent = sentence(sentence_length, walker)
+print(sent)
