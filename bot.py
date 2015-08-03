@@ -1,11 +1,11 @@
 import sys
 import pickle
 from words import words
-from sentence import *
+from quote import *
 from markov import *
 from frequency import probabilities, make_word_walker
 
-sentence_length = int(sys.argv[1])
+quote_length = int(sys.argv[1])
 algorithm_selection = sys.argv[2]
 files = sys.argv[3:len(sys.argv)]
 prefix_length = 2
@@ -25,5 +25,4 @@ else:
         source = probabilities(corpus)
         walker = make_word_walker(source)
 
-sent = sentence(sentence_length, walker)
-print(sent)
+print( quote(quote_length, walker) )
