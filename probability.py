@@ -37,3 +37,15 @@ def make_word_walker(sorted_probabilities):
                 history.append(word)
                 return (word,)
     return word_walker
+
+if __name__ == '__main__':
+    import sys
+    import pickle
+    from words import words
+
+    files = sys.argv[1:]
+    corpus = words(files)
+    dist = probabilities(corpus)
+    pickle_file = "probability.pickle"
+    pickle.dump(dist, open(pickle_file, "wb"))
+    print("Probability distribution pickled to " + pickle_file + ".")
