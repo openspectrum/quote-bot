@@ -1,4 +1,5 @@
 from flask import Flask
+from flask import render_template
 
 import pickle
 import random
@@ -17,7 +18,8 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     walker = make_prefix_walker(source)
-    return quote(quote_length, walker)
+    quotes = [quote(quote_length, walker) for i in range(10)]
+    return render_template('index.html', quotes=quotes)
 
 if __name__ == "__main__":
     app.run(debug=True)
