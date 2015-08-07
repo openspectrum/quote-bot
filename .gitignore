@@ -1,4 +1,5 @@
 .DS_Store
 *.pickle
+venv/
 corpora/
 __pycache__/
