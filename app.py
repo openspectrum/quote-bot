@@ -10,7 +10,7 @@ from words import words
 from quote import quote
 from markov import make_prefix_walker
 
-source_file = 'twain-russell.markov_data'
+source_file = 'russell.markov_data'
 
 source = pickle.load(open(source_file, "rb"))
 
