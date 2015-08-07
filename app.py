@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask
 from flask import render_template
 
@@ -14,6 +16,7 @@ quote_length = random.randrange(10, 30)
 source = pickle.load(open(source_file, "rb"))
 
 app = Flask(__name__)
+app.config['DEBUG'] = os.environ.get('DEBUG', False)
 
 @app.route("/")
 def index():
@@ -22,4 +25,4 @@ def index():
     return render_template('index.html', quotes=quotes)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
