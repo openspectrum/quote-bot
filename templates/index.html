@@ -12,7 +12,12 @@
       </header>
       <div class="quotes">
         {% for quote in quotes %}
-        <blockquote>{{ quote }}</blockquote>
+        <blockquote>{{ quote }}
+          <form class="tweet-quote" action="/tweet" method="post">
+            <input type="hidden" name="quote" value="{{ quote }}">
+            <button type="submit">Tweet this</button>
+          </form>
+        </blockquote>
         {% endfor %}
       </div>
     </section>
