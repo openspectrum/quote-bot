@@ -33,3 +33,18 @@ blockquote:last-child {
   margin-bottom: none;
   border-bottom: none;
 }
+
+.tweet-quote {
+  text-align: right;
+}
+
+.tweet-quote button {
+  font-size: .5em;
+  font-family: Helvetica, sans-serif;
+  border-radius: .5em;
+  border: none;
+  background-color: #55acee;
+  color: #fff;
+  padding: .5em;
+  box-shadow: #ccc 1px 1px 3px;
+}
